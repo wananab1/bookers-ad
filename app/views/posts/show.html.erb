@@ -1,0 +1,12 @@
+<h1>Show</h1>
+
+<h4>title</h4>
+<p ><%= @post.title %></p>
+<h4>opinion</h4>
+<p ><%= @post.opinion %></p>
+<p >
+	<%= link_to "Edit", edit_post_path(@post.id) %>
+ 	|
+ 	<%= link_to "Delete", post_path(@post.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+ </p>
+<p><%= link_to "投稿一覧に戻る", posts_path %></p>
