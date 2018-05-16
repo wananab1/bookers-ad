@@ -10,7 +10,6 @@
 
   <body>
   	<%= link_to 'log out', destroy_user_session_path, method: :delete %>
-    <%= current_user.name %>
     <%= yield %>
   </body>
 </html>
