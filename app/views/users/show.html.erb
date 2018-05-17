@@ -1,5 +1,14 @@
 <h1>Users#show</h1>
-<%= @user.name %>
+<p><%= @user.name %></p>
+<p>
+	<%if @user.intro%>
+		<%= @user.intro %>
+	<% else %>
+		よろしくお願いします。
+	<% end %>
+</p>
+<p><%= link_to "Profile Edit", edit_user_path(@user.id) %></p>
+
 
 <table>
 	<thead>
