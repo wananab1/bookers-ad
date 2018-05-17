@@ -1,16 +1,22 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!
+
 	def top
 	end
 
 	def about
 	end
 
+	before_action :authenticate_user!
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = current_user.id
-		@post.save
-		redirect_to posts_path
+
+		if @post.save
+			redirect_to posts_path
+		else
+			@posts = Post.all
+			render "posts/index"
+		end
 	end
 
 	def index
@@ -28,8 +34,12 @@ class PostsController < ApplicationController
 
 	def update
 		post = Post.find(params[:id])
-		post.update(post_params)
-		redirect_to posts_path
+		if post.update(post_params)
+			redirect_to posts_path
+		else
+			render "posts/edit"
+		end
+
 	end
 
 	def destroy
@@ -42,5 +52,4 @@ class PostsController < ApplicationController
 		def post_params
 			params.require(:post).permit(:title, :opinion, :user_id)
 		end
-
 end
