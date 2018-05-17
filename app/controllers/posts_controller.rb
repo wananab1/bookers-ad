@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
 
+	before_action :authenticate_user!, except: [:top, :about]
+
 	def top
 	end
 
 	def about
 	end
 
-	before_action :authenticate_user!
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = current_user.id
