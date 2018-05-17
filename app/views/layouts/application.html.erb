@@ -9,7 +9,21 @@
   </head>
 
   <body>
-  	<%= link_to 'log out', destroy_user_session_path, method: :delete %>
+    <header>
+      <ul class="header-list clearfix">
+        <% if current_user %>
+          <li>MyPage</li>
+          <li>Users</li>
+          <li>Books</li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li>Top</li>
+          <li>About</li>
+          <li>SignUp</li>
+          <li>LogIn</li>
+        <% end %>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>

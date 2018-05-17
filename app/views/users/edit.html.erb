@@ -5,6 +5,12 @@
 	<%= f.text_field :name %>
 	<h4>introduce</h4>
 	<%= f.text_area :intro %>
-
+	<h4>profile image</h4>
+	<div>
+		<%= attachment_image_tag @user, :profile_image, :fill, 90, 90, fallback: "no_image.jpeg" %>
+	</div>
+	<div>
+		<%= f.attachment_field :profile_image, placeholder:"プロフィール画像" %>
+	</div>
 	<div><%= f.submit '保存' %></div>
 <% end %>
