@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 *{
 	margin: 0;
 	padding: 0;
@@ -29,4 +32,24 @@
 .header-list li{
 	float:left;
 	padding-right: 30px;
+}
+/*sidebar*/
+.sidebar{
+	background-color: #ECF4FC;
+}
+.user-icon{
+	display: block;
+	margin: 0 auto;
+}
+.sidebar-title{
+	width: auto;
+	text-align: center;
+}
+.sidebar-user-info{
+	font-weight: 400;
+	font-size: 16px;
+}
+.newpost label{
+	display: inline-block;
+	width: 100%;
 }

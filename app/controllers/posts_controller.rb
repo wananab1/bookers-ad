@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 			redirect_to posts_path
 		else
 			@posts = Post.all
+			@user = current_user
 			render "posts/index"
 		end
 	end
@@ -23,6 +24,7 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.all
 		@post = Post.new
+		@user = current_user
 	end
 
 	def show
