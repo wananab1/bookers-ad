@@ -21,6 +21,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+body{
+	padding-top: 70px;
+}
 .clearfix::after{
 	content: "";
 	display:block;
@@ -33,7 +36,18 @@
 	float:left;
 	padding-right: 30px;
 }
-/*sidebar*/
+
+/*ヘッダー*/
+.nav-title{
+	color: white;
+	float:left;
+	padding: 15px 15px;
+	font-size: 32px;
+	height: 50px;
+	line-height: 0.5;
+}
+
+/*サイドバー*/
 .sidebar{
 	background-color: #ECF4FC;
 }
@@ -53,3 +67,4 @@
 	display: inline-block;
 	width: 100%;
 }
+
