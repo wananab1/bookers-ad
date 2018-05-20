@@ -11,7 +11,7 @@
 				<tr>
 					<th>Introduction</th>
 					<td class="sidebar-user-info">
-						<%if user.intro == nil%>
+						<%if user.intro.blank? %>
 							よろしくお願いします。
 						<% else %>
 							<%= user.intro %>

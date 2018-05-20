@@ -24,7 +24,11 @@
 							</td>
 							<td class="col-lg-8">
 								<p class="post-opinion">
-									<%= user.intro %>
+									<%if user.intro.blank? %>
+										よろしくお願いします。
+									<% else %>
+										<%= user.intro %>
+									<% end %>
 								</p>
 							</td>
 						</tr>

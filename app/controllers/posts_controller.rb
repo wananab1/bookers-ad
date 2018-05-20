@@ -28,7 +28,9 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
+		@post_show = Post.find(params[:id])
+		@user = current_user
+		@post = Post.new
 	end
 
 	def edit
@@ -40,6 +42,7 @@ class PostsController < ApplicationController
 		if post.update(post_params)
 			redirect_to posts_path
 		else
+			@post = Post.find(params[:id])
 			render "posts/edit"
 		end
 
