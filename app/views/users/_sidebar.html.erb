@@ -1,0 +1,42 @@
+<div class="col-lg-3 sidebar">
+	<div class="sidebar-inner">
+		<h2 class="sidebar-title">User Infomation</h2>
+		<%= attachment_image_tag user, :profile_image, :fill, 90, 90, fallback: "no_image.jpeg", :class => "user-icon" %>
+		<table class="table">
+			<tbody class="a">
+				<tr>
+					<th>Name</th>
+					<td class="sidebar-user-info"><%= user.name %></td>
+				</tr>
+				<tr>
+					<th>Introduction</th>
+					<td class="sidebar-user-info">
+						<%if user.intro == nil%>
+							よろしくお願いします。
+						<% else %>
+							<%= user.intro %>
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+			<% if user.id == current_user.id %>
+				<%= link_to edit_user_path(user.id), :class =>"btn btn-default btn-block"  do %>
+					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					<span>Setting</span>
+			    <% end %>
+			<% end %>
+		<div class="newpost">
+			<h2 class="sidebar-title">New Post</h2>
+			<%= form_for(post) do |f| %>
+				<label for="post_title">Title</label>
+				<%= f.text_field :title, :size => "45" %>
+				<label for="post_opinion">Opinion</label>
+				<%= f.text_area :opinion, :size => "45x5" %>
+				<div>
+					<%= f.submit 'Submit', :class => "btn-block btn-info btn-lg" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

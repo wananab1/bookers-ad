@@ -36,7 +36,6 @@ body{
 	float:left;
 	padding-right: 30px;
 }
-
 /*ヘッダー*/
 .nav-title{
 	color: white;
@@ -46,14 +45,19 @@ body{
 	height: 50px;
 	line-height: 0.5;
 }
+/* フッター */
+footer{
+	text-align:center;
+}
 
 /*サイドバー*/
-.sidebar{
-	background-color: #ECF4FC;
+.a{
+	width:100%;
 }
 .user-icon{
 	display: block;
 	margin: 0 auto;
+	border-radius: 10%;
 }
 .sidebar-title{
 	width: auto;
@@ -62,9 +66,22 @@ body{
 .sidebar-user-info{
 	font-weight: 400;
 	font-size: 16px;
+	width: 200px;
 }
 .newpost label{
 	display: inline-block;
 	width: 100%;
+}
+/*インデックス*/
+.post-title,.post-opinion{
+	line-height: 3;
+	display:inline;
+}
+.main-title{
+	color: #0B610B;
+}
+
+td{
+	word-break: break-all;
 }
 

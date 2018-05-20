@@ -27,7 +27,7 @@
                 <li>
                   <%= link_to user_path(current_user.id) do %>
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    <span>MayPage</span>
+                    <span>MyPage</span>
                   <% end %>
                 </li>
                 <li>
@@ -81,5 +81,9 @@
     </header>
 
     <%= yield %>
+
+    <footer>
+      <p class="footer-text">© All rights recerved by Bookers.Inc.</p>
+    </footer>
   </body>
 </html>
