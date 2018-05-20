@@ -62,6 +62,7 @@ footer{
 .sidebar-title{
 	width: auto;
 	text-align: center;
+	padding-bottom: 20px;
 }
 .sidebar-user-info{
 	font-weight: 400;
@@ -84,4 +85,16 @@ footer{
 td{
 	word-break: break-all;
 }
+/*ユーザーエディット*/
+.user-edit{
+	text-align: center;
+}
+.user-edit h5{
+	text-align: left;
+	padding-top: 20px;
+}
+.edit-btn{
+	margin-top: 20px;
+}
+
 

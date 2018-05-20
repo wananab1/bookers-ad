@@ -7,6 +7,7 @@
 				<thead>
 					<tr>
 						<th></th>
+						<th>Name</th>
 						<th>Title</th>
 						<th>Opinion</th>
 						<th></th>
@@ -15,12 +16,12 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="col-lg-2">
+						<td class="col-lg-1">
 							<%= link_to user_path(@post_show.user_id) do %>
 								<%= attachment_image_tag @post_show.user, :profile_image, :fill, 45, 45, fallback: "no_image_s.jpeg" %>
-								<%= @post_show.user.name %>
 							<% end %>
 						</td>
+						<td class="col-lg-1"><%= @post_show.user.name %></td>
 						<td class="col-lg-2"><%= @post_show.title %></td>
 						<td class="col-lg-6"><%= @post_show.opinion %></td>
 						<% if @post_show.user_id == current_user.id %>

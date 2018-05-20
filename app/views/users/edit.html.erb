@@ -1,16 +1,24 @@
-<h1>User#edit</h1>
-
-<%= form_for(@user) do |f| %>
-	<h4>name</h4>
-	<%= f.text_field :name %>
-	<h4>introduce</h4>
-	<%= f.text_area :intro %>
-	<h4>profile image</h4>
-	<div>
-		<%= attachment_image_tag @user, :profile_image, :fill, 90, 90, fallback: "no_image.jpeg" %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-3 user-edit">
+			<h2 class="sidebar-title">User Infomation</h2>
+			<%= form_for(@user) do |f| %>
+				<h5>Profile Image</h5>
+				<div>
+					<%= attachment_image_tag @user, :profile_image, :fill, 90, 90, fallback: "no_image.jpeg" %>
+				</div>
+				<div>
+					<%= f.attachment_field :profile_image, placeholder:"プロフィール画像" %>
+				</div>
+				<h5>Name</h5>
+				<%= f.text_field :name, :size => "30" %>
+				<h5>Introduction</h5>
+				<%= f.text_area :intro, :size => "30x5"%>
+				<div><%= f.submit 'Submit', :class => "btn-block btn-info btn-lg edit-btn" %></div>
+			<% end %>
+		</div>
+		<div class="col-lg-9">
+			<h2 class="main-title" >UserEdit</h2>
+		</div>
 	</div>
-	<div>
-		<%= f.attachment_field :profile_image, placeholder:"プロフィール画像" %>
-	</div>
-	<div><%= f.submit '保存' %></div>
-<% end %>
+</div>
