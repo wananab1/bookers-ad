@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	before_action :authenticate_user!, except: [:top, :about]
-
+	before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 	def top
 	end
 
@@ -52,6 +52,7 @@ class PostsController < ApplicationController
 		post.destroy
 		redirect_to posts_path
 	end
+
 
 	private
 		def post_params
