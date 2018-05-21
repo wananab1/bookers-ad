@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
 		if @post.save
 			redirect_to posts_path
+			flash[:newpost] = "New Post !!"
 		else
 			@posts = Post.all
 			@user = current_user
@@ -51,6 +52,7 @@ class PostsController < ApplicationController
 		post = Post.find(params[:id])
 		post.destroy
 		redirect_to posts_path
+		flash[:delete] = "Delete Post"
 	end
 
 	def ensure_correct_post_user

@@ -79,7 +79,16 @@
         </div>
       </nav>
     </header>
-
+    <% if flash[:newpost] %>
+      <div class="alert alert-success">
+        <%= flash[:newpost] %>
+      </div>
+      <% end %>
+      <% if flash[:delete] %>
+        <div class="alert alert-danger">
+        <%= flash[:delete] %>
+      </div>
+    <% end %>
     <%= yield %>
 
     <footer>

@@ -21,7 +21,7 @@
 								<%= attachment_image_tag @post_show.user, :profile_image, :fill, 45, 45, fallback: "no_image_s.jpeg" %>
 							<% end %>
 						</td>
-						<td class="col-lg-1"><%= @post_show.user.name %></td>
+						<td class="col-lg-1"><%= link_to @post_show.user.name, user_path(@post_show.user_id) %></td>
 						<td class="col-lg-2"><%= @post_show.title %></td>
 						<td class="col-lg-6"><%= @post_show.opinion %></td>
 						<% if @post_show.user_id == current_user.id %>
