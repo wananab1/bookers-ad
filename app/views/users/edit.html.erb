@@ -16,6 +16,15 @@
 				<%= f.text_area :intro, :size => "30x5"%>
 				<div><%= f.submit 'Submit', :class => "btn-block btn-info btn-lg edit-btn" %></div>
 			<% end %>
+			<% if @user.errors.any? %>
+			  <div class="alert alert-danger">
+			    <ul>
+			      <% @user.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			    </ul>
+			  </div>
+			<% end %>
 		</div>
 		<div class="col-lg-9">
 			<h2 class="main-title" >UserEdit</h2>

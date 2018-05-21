@@ -10,6 +10,15 @@
 
 				<div><%= f.submit 'Submit', :class => "btn-block btn-info btn-lg edit-btn" %></div>
 			<% end %>
+			<% if @post.errors.any? %>
+			  <div class="alert alert-danger">
+			    <ul>
+			      <% @post.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			    </ul>
+			  </div>
+			<% end %>
 		</div>
 		<div class="col-lg-9">
 			<h2 class="main-title" >BookEdit</h2>
