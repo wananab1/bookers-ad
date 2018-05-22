@@ -59,6 +59,7 @@ class PostsController < ApplicationController
      	@post = Post.find(params[:id])
     	if current_user.id != @post.user_id
       	redirect_to posts_path
+      	flash[:delete] = "Unauthorized Access"
     	end
   	end
 
