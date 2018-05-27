@@ -2,14 +2,7 @@
 	<div class="row">
 		<div class="col-lg-3">
 			<h2 class="sidebar-title">Book</h2>
-			<%= form_for(@post) do |f| %>
-				<h5>Title</h5>
-				<%= f.text_field :title, :size=>"45" %>
-				<h5>Opinion</h5>
-				<%= f.text_area :opinion, :size=>"45x10" %>
-
-				<div><%= f.submit 'Submit', :class => "btn-block btn-info btn-lg edit-btn" %></div>
-			<% end %>
+			<!-- error-message start -->
 			<% if @post.errors.any? %>
 			  <div class="alert alert-danger">
 			    <ul>
@@ -19,6 +12,16 @@
 			    </ul>
 			  </div>
 			<% end %>
+			<!-- error-message finish -->
+			<%= form_for(@post) do |f| %>
+				<h5>Title</h5>
+				<%= f.text_field :title, :size=>"45" %>
+				<h5>Opinion</h5>
+				<%= f.text_area :opinion, :size=>"45x10" %>
+
+				<div><%= f.submit 'Submit', :class => "btn-block btn-info btn-lg edit-btn" %></div>
+			<% end %>
+
 		</div>
 		<div class="col-lg-9">
 			<h2 class="main-title" >BookEdit</h2>

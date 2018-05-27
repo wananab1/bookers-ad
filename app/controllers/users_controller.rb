@@ -8,9 +8,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @post = Post.new
-  	@user = User.find(params[:id])
-  	@posts = @user.posts
+    @user = User.find_by_id(params[:id])
+    unless @user then
+      redirect_to users_path
+      flash[:delete] = "Not Found"
+    else
+      @post = Post.new
+      @posts = @user.posts
+    end
   end
 
   def edit

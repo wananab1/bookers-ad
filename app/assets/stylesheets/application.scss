@@ -45,6 +45,9 @@ body{
 	height: 50px;
 	line-height: 0.5;
 }
+#top-btn{
+	cursor: pointer;
+}
 /* フッター */
 footer{
 	text-align:center;
@@ -72,6 +75,9 @@ footer{
 .newpost label{
 	display: inline-block;
 	width: 100%;
+}
+#setting{
+	height: 32px;
 }
 /*インデックス*/
 .post-title,.post-opinion{

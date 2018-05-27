@@ -21,22 +21,14 @@
 			</tbody>
 		</table>
 			<% if user.id == current_user.id %>
-				<%= link_to edit_user_path(user.id), :class =>"btn btn-default btn-block"  do %>
+				<%= link_to edit_user_path(user.id), :class =>"btn btn-default btn-block", :id => "setting"  do %>
 					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 					<span>Setting</span>
 			    <% end %>
 			<% end %>
 		<div class="newpost">
 			<h2 class="sidebar-title">New Post</h2>
-			<%= form_for(post) do |f| %>
-				<label for="post_title">Title</label>
-				<%= f.text_field :title, :size => "45" %>
-				<label for="post_opinion">Opinion</label>
-				<%= f.text_area :opinion, :size => "45x6" %>
-				<div>
-					<%= f.submit 'Submit', :class => "btn-block btn-info btn-lg" %>
-				</div>
-			<% end %>
+			<!-- error-message -->
 			<% if post.errors.any? %>
 			  <div class="alert alert-danger">
 			    <ul>
@@ -45,6 +37,16 @@
 			      <% end %>
 			    </ul>
 			  </div>
+			<% end %>
+			<!-- form -->
+			<%= form_for(post) do |f| %>
+				<label for="post_title">Title</label>
+				<%= f.text_field :title, :size => "45" %>
+				<label for="post_opinion">Opinion</label>
+				<%= f.text_area :opinion, :size => "45x6" %>
+				<div>
+					<%= f.submit 'Submit', :class => "btn-block btn-info btn-lg" %>
+				</div>
 			<% end %>
 		</div>
 	</div>

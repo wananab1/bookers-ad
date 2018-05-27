@@ -29,9 +29,13 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post_show = Post.find(params[:id])
+		@post_show = Post.find_by_id(params[:id])
 		@user = current_user
 		@post = Post.new
+		unless @post_show then
+			redirect_to posts_path
+			flash[:delete] = "Not Found"
+		end
 	end
 
 	def edit

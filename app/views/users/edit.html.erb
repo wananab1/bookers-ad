@@ -2,6 +2,17 @@
 	<div class="row">
 		<div class="col-lg-3 user-edit">
 			<h2 class="sidebar-title">User Infomation</h2>
+			<!-- error-message start -->
+			<% if @user.errors.any? %>
+			  <div class="alert alert-danger">
+			    <ul>
+			      <% @user.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+			<!-- error-message finish -->
 			<%= form_for(@user) do |f| %>
 				<h5>Profile Image</h5>
 				<div>
@@ -15,15 +26,6 @@
 				<h5>Introduction</h5>
 				<%= f.text_area :intro, :size => "30x5"%>
 				<div><%= f.submit 'Submit', :class => "btn-block btn-info btn-lg edit-btn" %></div>
-			<% end %>
-			<% if @user.errors.any? %>
-			  <div class="alert alert-danger">
-			    <ul>
-			      <% @user.errors.full_messages.each do |message| %>
-			        <li><%= message %></li>
-			      <% end %>
-			    </ul>
-			  </div>
 			<% end %>
 		</div>
 		<div class="col-lg-9">
