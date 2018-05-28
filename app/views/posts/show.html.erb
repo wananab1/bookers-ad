@@ -14,7 +14,7 @@
 						<th></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody class="show-tbody">
 					<tr>
 						<td class="col-lg-1">
 							<%= link_to user_path(@post_show.user_id) do %>
@@ -22,8 +22,8 @@
 							<% end %>
 						</td>
 						<td class="col-lg-1"><%= link_to @post_show.user.name, user_path(@post_show.user_id) %></td>
-						<td class="col-lg-2"><%= @post_show.title %></td>
-						<td class="col-lg-6"><%= @post_show.opinion %></td>
+						<td class="col-lg-2 show-post"><%= @post_show.title %></td>
+						<td class="col-lg-6 show-post"><%= @post_show.opinion %></td>
 						<% if @post_show.user_id == current_user.id %>
 							<td class="col-lg-1">
 								<%= link_to "Edit", edit_post_path(@post_show.id), :class =>"btn btn-success btn-block" %>
@@ -35,6 +35,24 @@
 					</tr>
 				</tbody>
 			</table>
+			<h4 class="main-title">Comments</h4>
+			<table class="table">
+				<% @comments.each do |comment| %>
+				<tbody>
+					<tr>
+						<td class="col-lg-1"></td>
+						<td class="col-lg-1"><%= comment.user.name %></td>
+						<td class="col-lg-8"><%= comment.comment %></td>
+						<td class="col-lg-1"></td>
+						<td class="col-lg-1"></td>
+					</tr>
+				</tbody>
+				<% end %>
+			</table>
+			<%= form_for [@post_show,@post_comment] do |f| %>
+				<%= f.text_field :comment, rows:'5', placeholder: "コメントをここに" %>
+				<%= f.submit "Submit", class: "btn" %>
+			<% end %>
 		</div>
 	</div>
 </div>

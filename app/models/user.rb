@@ -8,5 +8,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length:{ in: 2..20 }
   validates :intro, length:{ maximum: 50 }
   attachment :profile_image
+  has_many :post_comments, dependent: :destroy
 
 end

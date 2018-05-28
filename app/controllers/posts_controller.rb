@@ -32,6 +32,8 @@ class PostsController < ApplicationController
 		@post_show = Post.find_by_id(params[:id])
 		@user = current_user
 		@post = Post.new
+		@post_comment = PostComment.new
+		@comments = @post_show.post_comments
 		unless @post_show then
 			redirect_to posts_path
 			flash[:delete] = "Not Found"
