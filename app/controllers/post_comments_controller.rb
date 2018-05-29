@@ -9,7 +9,10 @@ class PostCommentsController < ApplicationController
 	end
 
 	def destroy
-
+		post_comment = PostComment.find(params[:id])
+		post_comment.destroy
+		redirect_to post_path(post_comment.post_id)
+		flash[:delete] = "Delete Comment"
 	end
 
 private

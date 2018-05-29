@@ -6,6 +6,7 @@
 				<th></th>
 				<th>title</th>
 				<th>opinion</th>
+				<th>score</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,14 +20,19 @@
 					<td class="col-lg-3">
 						<p class="post-title"><%= link_to post.title, post_path(post.id)%></p>
 					</td>
-					<td class="col-lg-8">
+					<td class="col-lg-7">
 						<p class="post-opinion">
-							<% if post.opinion.length >= 45 %>
-								<%= post.opinion.slice(0, 45) %>...
+							<% if post.opinion.length >= 40 %>
+								<%= post.opinion.slice(0, 40) %>...
 							<% else %>
 								<%= post.opinion %>
 							<% end %>
 						</p>
+					<td class="col-lg-1">
+						<%if !post.score.blank?%>
+							<p class="list-score"><%= post.score %>点</p>
+						<% end %>
+					</td>
 					</td>
 				</tr>
 			<% end %>

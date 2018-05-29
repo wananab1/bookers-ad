@@ -16,6 +16,8 @@
 			<%= form_for(@post) do |f| %>
 				<h5>Title</h5>
 				<%= f.text_field :title, :size=>"45" %>
+				<h5>Score</h5>
+				<%= f.select :score, options_for_select(1..100), :include_blank => "未選択" %>
 				<h5>Opinion</h5>
 				<%= f.text_area :opinion, :size=>"45x10" %>
 

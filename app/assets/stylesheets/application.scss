@@ -87,7 +87,11 @@ footer{
 .main-title{
 	color: #0B610B;
 }
-
+.list-score{
+	line-height: 2;
+	padding-top: 5px;
+	padding-left: 5px;
+}
 td{
 	word-break: break-all;
 }
@@ -134,5 +138,8 @@ td{
 }
 .show-post{
 	font-size: 18px;
+}
+.comment-area,.comment-btn{
+	float:right;
 }
 

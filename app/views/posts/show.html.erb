@@ -24,35 +24,45 @@
 						<td class="col-lg-1"><%= link_to @post_show.user.name, user_path(@post_show.user_id) %></td>
 						<td class="col-lg-2 show-post"><%= @post_show.title %></td>
 						<td class="col-lg-6 show-post"><%= @post_show.opinion %></td>
-						<% if @post_show.user_id == current_user.id %>
 							<td class="col-lg-1">
+								<% if @post_show.user_id == current_user.id %>
 								<%= link_to "Edit", edit_post_path(@post_show.id), :class =>"btn btn-success btn-block" %>
+								<% end %>
 							</td>
 							<td class="col-lg-1">
+								<% if @post_show.user_id == current_user.id %>
 								<%= link_to "Delete", post_path(@post_show.id), method: :delete, data: {confirm: "本当に削除しますか？"}, :class =>"btn btn-danger btn-block" %>
+								<% end %>
 							</td>
-						<% end %>
 					</tr>
 				</tbody>
 			</table>
 			<h4 class="main-title">Comments</h4>
 			<table class="table">
 				<% @comments.each do |comment| %>
-				<tbody>
 					<tr>
-						<td class="col-lg-1"></td>
+						<td class="col-lg-1">
+							<%= link_to user_path(comment.user_id) do %>
+								<%= attachment_image_tag comment.user, :profile_image, :fill, 45, 45, fallback: "no_image_s.jpeg" %>
+							<% end %>
+						</td>
 						<td class="col-lg-1"><%= comment.user.name %></td>
 						<td class="col-lg-8"><%= comment.comment %></td>
 						<td class="col-lg-1"></td>
-						<td class="col-lg-1"></td>
+						<td class="col-lg-1">
+							<% if comment.user_id == current_user.id %>
+							<%= link_to "Delete", post_post_comment_path(@post_show.id, comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, :class =>"btn btn-danger btn-block" %>
+							<% end %>
+						</td>
 					</tr>
-				</tbody>
 				<% end %>
 			</table>
-			<%= form_for [@post_show,@post_comment] do |f| %>
-				<%= f.text_field :comment, rows:'5', placeholder: "コメントをここに" %>
-				<%= f.submit "Submit", class: "btn" %>
-			<% end %>
+			<div class="comment-area">
+				<%= form_for [@post_show,@post_comment] do |f| %>
+					<div><%= f.text_area :comment, :size => "45x6", :placeholder => "Comment" %></div>
+					<div class="comment-btn"><%= f.submit "Submit", :class => "btn btn-warning btn" %></div>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>
