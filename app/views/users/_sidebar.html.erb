@@ -42,6 +42,8 @@
 			<%= form_for(post) do |f| %>
 				<label for="post_title">Title</label>
 				<%= f.text_field :title, :size => "45" %>
+				<label>Score</label>
+				<%= f.select :score, options_for_select(1..100), :include_blank => "未選択" %>
 				<label for="post_opinion">Opinion</label>
 				<%= f.text_area :opinion, :size => "45x6" %>
 				<div>

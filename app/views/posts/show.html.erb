@@ -10,6 +10,7 @@
 						<th>Name</th>
 						<th>Title</th>
 						<th>Opinion</th>
+						<th>Score</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -23,17 +24,22 @@
 						</td>
 						<td class="col-lg-1"><%= link_to @post_show.user.name, user_path(@post_show.user_id) %></td>
 						<td class="col-lg-2 show-post"><%= @post_show.title %></td>
-						<td class="col-lg-6 show-post"><%= @post_show.opinion %></td>
-							<td class="col-lg-1">
-								<% if @post_show.user_id == current_user.id %>
-								<%= link_to "Edit", edit_post_path(@post_show.id), :class =>"btn btn-success btn-block" %>
-								<% end %>
-							</td>
-							<td class="col-lg-1">
-								<% if @post_show.user_id == current_user.id %>
-								<%= link_to "Delete", post_path(@post_show.id), method: :delete, data: {confirm: "本当に削除しますか？"}, :class =>"btn btn-danger btn-block" %>
-								<% end %>
-							</td>
+						<td class="col-lg-5 show-post"><%= @post_show.opinion %></td>
+						<td class="col-lg-1">
+							<% if !@post_show.score.blank? %>
+								<p class="show-score"><%= @post_show.score %>点</p>
+							<% end %>
+						</td>
+						<td class="col-lg-1">
+							<% if @post_show.user_id == current_user.id %>
+							<%= link_to "Edit", edit_post_path(@post_show.id), :class =>"btn btn-success btn-block" %>
+							<% end %>
+						</td>
+						<td class="col-lg-1">
+							<% if @post_show.user_id == current_user.id %>
+							<%= link_to "Delete", post_path(@post_show.id), method: :delete, data: {confirm: "本当に削除しますか？"}, :class =>"btn btn-danger btn-block" %>
+							<% end %>
+						</td>
 					</tr>
 				</tbody>
 			</table>
