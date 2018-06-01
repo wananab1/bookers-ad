@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:delete] = "Not Found"
     else
       @post = Post.new
-      @posts = @user.posts
+      @posts = @user.posts.order(created_at: :desc)
     end
   end
 
